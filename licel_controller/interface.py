@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 import asyncio
-from licel_controller import HOST, PORT
 from multiprocessing import Pool
-from licel_controller import tr_commands
+from licel_controller import HOST, PORT, tr_commands
 
 
 class Controller():
