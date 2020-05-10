@@ -1,0 +1,7 @@
+.pytest_cache/
+__pycache__/
+.python-version
+.idea/
+venv/
+test_env/
+venv3.6/
