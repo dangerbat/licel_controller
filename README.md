@@ -10,7 +10,11 @@ usage:
 `pip install -r requirements.txt`  
 
 *Activate the virtual environment then locate the
-package and run*
+release package and run*
+
+`pip install licel_controller-0.0.1-py3-none-any.whl`
+
+*or*
 
 `pip install licel-controller-0.0.1.tar.gz`
 
@@ -38,6 +42,6 @@ if __name__ == '__main__':
 `python example.py`
 
 
-** To test the package run: **
+**To test the package run:**
 
 `pytest --pyargs licel_controller`
