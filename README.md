@@ -36,3 +36,8 @@ if __name__ == '__main__':
 *run*
 
 `python example.py`
+
+
+** To test the package run: **
+
+`pytest --pyargs licel_controller`
