@@ -5,3 +5,7 @@ __pycache__/
 venv/
 test_env/
 venv3.6/
+*.pyc
+build/
+dist/
+*.egg-info/
