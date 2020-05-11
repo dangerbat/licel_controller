@@ -10,9 +10,9 @@ usage:
 `pip install -r requirements.txt`  
 
 *Activate the virtual environment then locate the
-licel_controller-0.0.1-py3-none-any.whl and run*
+package and run*
 
-`pip install licel_controller-0.0.1-py3-none-any.whl`
+`pip install licel-controller-0.0.1.tar.gz`
 
 *create a file exaḿple.py with the following content*
 
