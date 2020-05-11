@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 import asyncio
 from multiprocessing import Pool
-from licel_controller import HOST, PORT, tr_commands
+from licel_controller import settings
+from licel_controller import tr_commands
 
 
 class Controller():
@@ -11,9 +12,12 @@ class Controller():
     def run(self):
         with Pool(1) as pool:
             try:
-                pool.map(client, self.commands_to_execute)
+                results = pool.map(client, self.commands_to_execute)
+                print(results)
             except OSError:
                 print("Connection failed..")
+                return
+            return results
 
     def crlf(self):
         return "\r\n"
@@ -50,12 +54,18 @@ def client(command):
     @asyncio.coroutine
     def tcp_echo_client(loop):
         reader, writer = yield from asyncio.open_connection(
-            HOST, PORT, loop=loop)
+            settings.HOST, settings.PORT, loop=loop)
         print(f'Send: {command.decode()!r}')
         writer.write(command)
         data = yield from reader.readline()
         print("Client received {!r} from server".format(data))
         writer.close()
+        return data.decode()
 
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(tcp_echo_client(loop))
+    data = loop.run_until_complete(
+        asyncio.gather(
+            tcp_echo_client(loop)
+        )
+    )
+    return data[0].replace('\r\n', '')
