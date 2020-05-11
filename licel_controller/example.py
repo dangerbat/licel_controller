@@ -1,4 +1,9 @@
+import licel_controller.settings
 from licel_controller.interface import Controller
+
+# override settings
+licel_controller.settings.HOST = "localhost"
+licel_controller.settings.PORT = 2055
 
 if __name__ == '__main__':
     c = Controller()
